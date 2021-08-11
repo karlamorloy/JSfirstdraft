@@ -1,17 +1,20 @@
-function TipoGasto (nombre, fecha, categoria, periodicidad) {
-    this.nombre = nombre;
+function TipoGasto (nombre, fecha, categoria, periodicidad) { //objeto para poder ingresar tipos de gastos
+    this.nombre = nombre.toLowerCase();
     this.fecha = fecha;
-    this.categoria = categoria;
-    this.periodicidad = periodicidad;
-  }
+    this.categoria = categoria.toLowerCase();
+    this.periodicidad = periodicidad.toLowerCase();
+};
+
   let inputNombre = "";
   let inputFecha = "";
   let inputCategoria = "";
   let inputPeriodicidad = "";
+
+  const gastosIngresados = [];
   
   let registroGasto = prompt("Quiere registrar un gasto: si / no");
   
-  while (registroGasto != "no") {
+while (registroGasto != "no") {
   
     inputNombre = prompt("ingrese nombre que identifique el gasto");
     inputFecha = prompt("ingrese fecha en la que realizó el gasto (dd/mm/aaaa)");
@@ -19,14 +22,15 @@ function TipoGasto (nombre, fecha, categoria, periodicidad) {
     inputPeriodicidad = prompt("ingrese cada cuanto hace este gasto (diario, quincenal, mensual, anual, único");
     const gasto1 = new TipoGasto (inputNombre, inputFecha, inputCategoria, inputPeriodicidad);
   
-    console.log(gasto1);
+    gastosIngresados.push(gasto1);
   
     registroGasto = prompt("Quiere registrar otro gasto si / no");
   }
 
+  console.table(gastosIngresados);
 
-// tarea 4
 
+//esta parte es para calcular los gastos y comparar con el ingreso
 
 let egreso;
 let gastoAcumulado;
