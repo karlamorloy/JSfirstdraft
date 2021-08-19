@@ -59,3 +59,18 @@ alert("El total gastado fue de " + gastoAcumulado);
 balance = resta(ingreso, gastoAcumulado);
 
 alert("El dinero restante disponible es " + balance);
+
+///////// entrega 8 DOM
+
+const expenses = [{ id: 1,  nombre: "Insumos", precio: 10000 },
+                  {  id: 2,  nombre: "Marketing", precio: 5000 },
+                  {  id: 3,  nombre: "Nomina"  , precio: 4000},
+                  {  id: 4,  nombre: "Otros" , precio: 1000}];
+
+for (const expense of expenses) {
+    let contenedor = document.createElement("div");
+    contenedor.innerHTML = `<p> ID: ${expense.id}</p>
+                            <h3>  Producto: ${expense.nombre}</h3>
+                            <b> $ ${expense.precio}</b>`;
+    document.body.appendChild(contenedor);
+}
