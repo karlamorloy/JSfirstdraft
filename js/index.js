@@ -1,3 +1,5 @@
+/*
+
 function TipoGasto (nombre, fecha, categoria, periodicidad) { //objeto para poder ingresar tipos de gastos
     this.nombre = nombre.toLowerCase();
     this.fecha = fecha;
@@ -74,3 +76,165 @@ for (const expense of expenses) {
                             <b> $ ${expense.precio}</b>`;
     document.body.appendChild(contenedor);
 }
+
+*/
+
+//second try
+
+/*
+
+class IncomeObject {
+  constructor (incomeType, incomeAmount, incomeDate){
+    this.incomeType = incomeType;
+    this.incomeAmount = parseFloat(incomeAmount);
+    this.incomeDate = incomeDate;
+  }
+}
+
+class ExpenseObject {
+  constructor (expenseType, expenseAmount, expenseDate){
+    this.expenseType = expenseType.toLowerCase();
+    this.expenseAmount = parseFloat(expenseAmount);
+    this.expenseDate = expenseDate;
+  }
+}
+
+const income = []; //array for income storage
+
+const expense = []; //array for expense storage
+
+//variables for html form access
+
+let newIncomeType = document.getElementById("income"); 
+let newIncomeAmount = document.getElementById("incomeAmount");
+let newIncomeDate = document.getElementById("incomeDate");
+let newExpenseType = document.getElementById("expense");
+let newExpenseAmount = document.getElementById("expenseAmount");
+let newExpenseDate = document.getElementById("expenseDate");
+
+
+//functions for getting imput data
+
+function incomeAdd () {
+  let incomeTypeAdd = newIncomeType.value;
+  let incomeAmountAdd = newIncomeAmount.value;
+  let incomeDateAdd = newIncomeDate.value;
+}
+
+//events for getting input data
+
+let incomeTypeVar = newIncomeType.addEventListener("input", incomeAdd);
+let incomeAmountVar = newIncomeAmount.addEventListener("input", incomeAdd);
+let incomeDateVar = newIncomeDate.addEventListener("input", incomeAdd);  
+
+
+
+income.push(new IncomeObject(incomeTypeVar, incomeAmountVar, incomeDateVar));
+
+console.dir(income);
+
+
+//variables for adding income and expenses total
+
+let incomeSum = document.getElementById("incomeTotal");
+let expenseSum = document.getElementById("expenseTotal");
+let balance = document.getElementById("balance");
+
+*/
+
+class IncomeObject {
+  constructor (incomeType, incomeAmount, incomeDate){
+    this.incomeType = incomeType.toLowerCase();
+    this.incomeAmount = parseFloat(incomeAmount);
+    this.incomeDate = incomeDate;
+  }
+}
+
+const income = []; //array for income storage
+
+
+let iForm = document.querySelector('#incomeForm');
+
+iForm.addEventListener("submit", incomeAdd);
+
+function incomeAdd(e){
+  e.preventDefault();
+
+  let newIncomeType = document.getElementById("income").value; 
+  let newIncomeAmount = document.getElementById("incomeAmount").value;
+  let newIncomeDate = document.getElementById("incomeDate").value;
+
+  console.log(newIncomeType);
+  console.log(newIncomeAmount);
+  console.log(newIncomeDate);
+
+  income.push(new IncomeObject(newIncomeType, newIncomeAmount, newIncomeDate));
+
+  console.log(income);
+
+
+}
+
+class ExpenseObject {
+  constructor (expenseType, expenseAmount, expenseDate){
+    this.expenseType = expenseType.toLowerCase();
+    this.expenseAmount = parseFloat(expenseAmount);
+    this.expenseDate = expenseDate;
+  }
+}
+
+const expense = []; //array for expense storage
+
+let eForm = document.querySelector('#expenseForm');
+
+eForm.addEventListener("submit", expenseAdd);
+
+function expenseAdd(e){
+  e.preventDefault();
+
+  let newExpenseType = document.getElementById("expense").value;
+  let newExpenseAmount = document.getElementById("expenseAmount").value;
+  let newExpenseDate = document.getElementById("expenseDate").value;
+
+  console.log(newExpenseType);
+  console.log(newExpenseAmount);
+  console.log(newExpenseDate);
+
+  expense.push(new ExpenseObject(newExpenseType, newExpenseAmount, newExpenseDate));
+
+  console.log(expense);
+
+
+}
+
+/// show income and expense list
+
+const incomeSubmitButton = document.getElementById("incomeSubmitBtn");
+
+console.log(incomeSubmitButton);
+
+const incomeList = [];
+
+
+
+function showIncome () {
+  const incomeSubmited = income.find(income => income.incomeType == this.incomeType)
+
+  incomeList.push(incomeSubmited);
+
+  let innerIncomeList = "";
+
+  for (const income of incomeList){
+    innerIncomeList += `<p>${income.incomeType} - ${income.incomeAmount} - ${income.incomeDate}</p>`;
+  }
+
+  const divIncome = document.getElementById("newIncome");
+  divIncome.innerHTML = innerIncomeList;
+
+
+
+}
+
+/*for (const incomeBtn of incomeSubmitButton) {
+  incomeBtn.addEventListener("click", showIncome);
+} */

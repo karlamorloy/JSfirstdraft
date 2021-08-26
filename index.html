@@ -31,6 +31,7 @@
     <h2 class="titulo">Pianel</h1>
     <h1 class="subtitulo">Lleva las finanzas de tu negocio como un experto pero sin tantas complicaciones</h2>
 
+        <!--
     <Section class="GridContainer">
 
         <div class="cards-container">
@@ -75,8 +76,89 @@
                   
 
     </Section>
+    -->
 
-    <script src=js/index.js></script>
+    <Section class="GridContainer">
+
+        <div class="cards-container">
+
+            <div class="expenseTypeGridItem">
+                <a href="" class="linkToTrack"><img src="https://cdn.business2community.com/wp-content/uploads/2016/12/top-10-passive-income-ideas-2016.jpg" alt="" class="imagenCard"></a>
+                <p>Ingresos de dinero</p>
+                <form id="incomeForm">
+                    Tipo de ingreso: 
+                       <input type = "text" name = "income_name" value = "" id="income"/>
+                       <br/>
+                       
+                    Monto de ingreso: 
+                       <input type = "number" name = "income_amount" value = "" id="incomeAmount" />
+                       <br/>
+
+                    Fecha de ingreso:
+                    <input type = "date" name = "income_date" value = "" id="incomeDate" />
+                    <br/>
+                    <input type = "submit" value = "Submit" id="submitBtn"/>
+                 </form>
+            </div>
+
+            <div class="expenseTypeGridItem">
+                <a href="" class="linkToTrack"><img src="https://i.ibb.co/f8fPPSL/expenses.jpg" alt="" class="imagenCard"></a>
+                <p>Egresos de dinero</p>
+                <form id="expenseForm">
+                    Tipo de engreso: 
+                       <input type = "text" name = "expense_name" value = "" id="expense"/>
+                       <br/>
+                       
+                    Monto de egreso: 
+                       <input type = "number" name = "expense_amount" value = "" id="expenseAmount" />
+                       <br/>
+
+                    Fecha de egreso:
+                    <input type = "date" name = "expense_date" value = "" id="expenseDate" />
+                    <br/>
+                    <input type = "submit" value = "Submit" id="submitBtn"/>
+                </form>
+            </div>     
+        </div>
+
+    </Section>
+
+    <Section class="GridContainer">
+
+        <div class="cards-container">
+
+            <div class="expenseTypeGridItem" id="newIncome">
+            </div>
+
+            <div class="expenseTypeGridItem" id="newExpense">
+            </div> 
+
+        </div>
+
+    </Section>
+
+    <Section class="GridContainer">
+
+        <div class="cards-container">
+
+            <div class="expenseTypeGridItem" id="incomeTotal">
+            </div>
+
+            <div class="expenseTypeGridItem" id="expenseTotal">
+            </div> 
+
+        </div>
+
+    </Section>
+
+    <div>
+        <p class="balance" id="balance">
+
+        </p>
+    </div>
+
+
+   <script src=js/index.js></script>
 </body>
 </html>
 
