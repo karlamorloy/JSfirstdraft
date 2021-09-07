@@ -155,14 +155,14 @@ const income = []; //array for income storage
 
 let iForm = document.querySelector('#incomeForm');
 
-iForm.addEventListener("submit", incomeAdd);
+iForm.on("submit", incomeAdd);
 
 function incomeAdd(e){
   e.preventDefault();
 
-  let newIncomeType = document.getElementById("income").value; 
-  let newIncomeAmount = document.getElementById("incomeAmount").value;
-  let newIncomeDate = document.getElementById("incomeDate").value;
+  let newIncomeType = $("#income").val(); 
+  let newIncomeAmount = $("#incomeAmount").val();
+  let newIncomeDate = $("#incomeDate").val();
 
   console.log(newIncomeType);
   console.log(newIncomeAmount);
@@ -187,14 +187,14 @@ const expense = []; //array for expense storage
 
 let eForm = document.querySelector('#expenseForm');
 
-eForm.addEventListener("submit", expenseAdd);
+eForm.on("submit", expenseAdd);
 
 function expenseAdd(e){
   e.preventDefault();
 
-  let newExpenseType = document.getElementById("expense").value;
-  let newExpenseAmount = document.getElementById("expenseAmount").value;
-  let newExpenseDate = document.getElementById("expenseDate").value;
+  let newExpenseType = $("#expense").val();
+  let newExpenseAmount = $("#expenseAmount").val();
+  let newExpenseDate = $("#expenseDate").val();
 
   console.log(newExpenseType);
   console.log(newExpenseAmount);
@@ -209,9 +209,8 @@ function expenseAdd(e){
 
 /// show income and expense list
 
-const incomeSubmitButton = document.getElementById("incomeSubmitBtn");
+const incomeSubmitButton = $("#incomeSubmitBtn");
 
-console.log(incomeSubmitButton);
 
 const incomeList = [];
 
@@ -228,7 +227,7 @@ function showIncome () {
     innerIncomeList += `<p>${income.incomeType} - ${income.incomeAmount} - ${income.incomeDate}</p>`;
   }
 
-  const divIncome = document.getElementById("newIncome");
+  const divIncome = $("#newIncome");
   divIncome.innerHTML = innerIncomeList;
 
 
@@ -237,4 +236,4 @@ function showIncome () {
 
 /*for (const incomeBtn of incomeSubmitButton) {
   incomeBtn.addEventListener("click", showIncome);
-} */
+} */ //no logro iterar este boton y que funcione, la idea es que se pasara a otra seccion la lista de ingresos y egresos como una especie de "carrito"
