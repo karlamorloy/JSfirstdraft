@@ -155,7 +155,9 @@ const income = []; //array for income storage
 
 let iForm = document.querySelector('#incomeForm');
 
-iForm.on("submit", incomeAdd);
+// iForm.on("submit", incomeAdd);
+
+iForm.submit(incomeAdd);
 
 function incomeAdd(e){
   e.preventDefault();
@@ -187,7 +189,9 @@ const expense = []; //array for expense storage
 
 let eForm = document.querySelector('#expenseForm');
 
-eForm.on("submit", expenseAdd);
+// eForm.on("submit", expenseAdd);
+
+eForm.submit(incomeAdd);
 
 function expenseAdd(e){
   e.preventDefault();
