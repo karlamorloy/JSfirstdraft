@@ -234,6 +234,14 @@ function showIncome () {
 
 }
 
+//animacion pointer
+let pointer = document.querySelector(".pointer");
+let pointer2 = document.querySelector(".pointer2");
+
+document.addEventListener("mousemove", function(e){
+  pointer.style.cssText = pointer2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+});
+
 /*for (const incomeBtn of incomeSubmitButton) {
   incomeBtn.addEventListener("click", showIncome);
 } */ //no logro iterar este boton y que funcione, la idea es que se pasara a otra seccion la lista de ingresos y egresos como una especie de "carrito"
